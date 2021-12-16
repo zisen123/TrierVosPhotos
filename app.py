@@ -9,7 +9,9 @@ import shutil
 imagesDIR=sys.argv[1]
 targetDIR=sys.argv[2]
 
-
+unknow='unknow'
+heic='HEIC'
+jpg='JPG'
 filenamewithpaths=[]
 for path, subdirs, files in os.walk(imagesDIR):
     for name in files:
@@ -88,18 +90,20 @@ for filenamewithpath in filenamewithpaths:
             os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname))
         else:
             if re.search(r'\.(HEIC|heic)',name):
-                if not os.path.exists(os.path.join(targetDIR,'unknow','HEIC')):
-                    os.mkdir(os.path.join(targetDIR,'unknow','HEIC'))
+                if not os.path.exists(os.path.join(targetDIR,unknow,heic)):
+                    os.mkdir(os.path.join(targetDIR,unknow,heic))
                 try:
-                    shutil.move(filenamewithpath,os.path.join(targetDIR,'unknow','HEIC'))                    
+                    shutil.move(filenamewithpath,os.path.join(targetDIR,unknow,heic))                    
                 except Exception:
                     pass                        
                 
             elif re.search(r'\.(JPG|jpg)',name):
-                if not os.path.exists(os.path.join(targetDIR,'unknow','JPG')):
-                    os.mkdir(os.path.join(targetDIR,'unknow','JPG'))
+                if not os.path.exists(os.path.join(targetDIR,unknow,jpg)):
+                    print(os.path.join(targetDIR,unknow,jpg))
+                    targetpath=os.path.join(targetDIR,unknow,jpg)
+                    os.makedirs(targetpath)
                 try:
-                    shutil.move(filenamewithpath,os.path.join(targetDIR,'unknow','JPG'))                    
+                    shutil.move(filenamewithpath,os.path.join(targetDIR,unknow,jpg))                    
                 except Exception:
                     pass
     elif re.search(r'\.(JPEG|jpeg)',name):
