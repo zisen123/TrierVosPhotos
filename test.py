@@ -7,9 +7,9 @@ import re
 import exiftool
 
 # DIR=input('The DIR your images in:')
-imagesDIR='/mnt/c/Users/Sen/Desktop/TrierDesImages'
-targetDIR='/mnt/c/Users/Sen/Desktop/TrierDesImages'
-offset=input('The UTC offset where you take your videos(for example if you take it in China you should type "8"):')
+imagesDIR='/mnt/c/Users/Sen/Desktop/TrierVosPhotos'
+targetDIR='/mnt/c/Users/Sen/Desktop/TrierVosPhotos'
+# offset=input('The UTC offset where you take your videos(for example if you take it in China you should type "8"):')
 for path, subdirs, files in os.walk(imagesDIR):
     for name in files:
         print(name)
@@ -17,6 +17,7 @@ for path, subdirs, files in os.walk(imagesDIR):
             filenamewithpath=os.path.join(path, name)
             with exiftool.ExifTool() as et:
                 metadata = et.get_metadata(filenamewithpath)
+            print(metadata)
             for key,value in metadata.items():
                 if re.search(r'^\d{4}:\d{2}:\d{2} \d{2}:\d{2}:\d{2}',str(value)) and re.search(r'QuickTime:CreationDate',str(key)): 
                     datetime=str(value)[0:19]
