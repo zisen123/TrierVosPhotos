@@ -1,8 +1,23 @@
 您好，欢迎使用我编写的python脚本，该脚本的主要功能是将您从iPhone导出的照片与影片以日期和时间的格式重命名并转移到以日期分类的文件夹中。  
 
 
-使用示例
 
+### 二进制文件（app.exe或者app）使用示例
+
+```shell
+app.exe /mnt/d/Library/Pictures/DCIM /mnt/d/Library/Pictures/DCIM_sorted
+```
+其中`/mnt/d/Library/Pictures/DCIM`是您的原始照片与影片的目录，而`/mnt/d/Library/Pictures/DCIM_sorted`是被整理后的目录。 
+
+
+
+
+
+
+
+
+------
+### 如果您想使用python源代码请看下面的示例
 
 ```shell
 python3 app.py /mnt/d/Library/Pictures/DCIM /mnt/d/Library/Pictures/DCIM_sorted
