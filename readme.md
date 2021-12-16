@@ -10,6 +10,7 @@ python3 app.py /mnt/d/Library/Pictures/DCIM /mnt/d/Library/Pictures/DCIM_sorted
 其中`/mnt/d/Library/Pictures/DCIM`是您的原始照片与影片的目录，而`/mnt/d/Library/Pictures/DCIM_sorted`是被整理后的目录。 
 
 首先安装exifread，`pip install exifread`
+
 在运行脚本之前请确保exiftool已经被添加到了系统环境变量中，推荐使用wsl或者linux系统[安装exiftool](https://exiftool.org/install.html#Unix)。
 
 
