@@ -5,76 +5,153 @@ import glob
 import os
 import re
 import exiftool
+filenamewithpath='./IMG_20200802_023152.JPG'
+with open(filenamewithpath, 'rb') as f:
+    tags = exifread.process_file(f)
+print(tags)
 
-# DIR=input('The DIR your images in:')
-imagesDIR='/mnt/c/Users/Sen/Desktop/TrierVosPhotos'
-targetDIR='/mnt/c/Users/Sen/Desktop/TrierVosPhotos'
-# offset=input('The UTC offset where you take your videos(for example if you take it in China you should type "8"):')
-for path, subdirs, files in os.walk(imagesDIR):
-    for name in files:
-        print(name)
-        if re.search(r'\.(MOV|mov)',name):
-            filenamewithpath=os.path.join(path, name)
-            with exiftool.ExifTool() as et:
-                metadata = et.get_metadata(filenamewithpath)
-            print(metadata)
-            for key,value in metadata.items():
-                if re.search(r'^\d{4}:\d{2}:\d{2} \d{2}:\d{2}:\d{2}',str(value)) and re.search(r'QuickTime:CreationDate',str(key)): 
-                    datetime=str(value)[0:19]
-                    date=str(datetime).split(" ")[0]
-                    time=str(datetime).split(" ")[1]
-                    date=date.split(":")[0]+date.split(":")[1]+date.split(":")[2]
-                    time=time.split(":")[0]+time.split(":")[1]+time.split(":")[2]
-                    y=date[0:4]
-                    m=date[4:6]
-                    finalname='VID_'+date+'_'+time+".MOV"
-                    if not os.path.exists(os.path.join(targetDIR,y)):
-                        os.mkdir(os.path.join(targetDIR,y))
-                    if not os.path.exists(os.path.join(targetDIR,y,m)):
-                        os.mkdir(os.path.join(targetDIR,y,m))                    
-                    os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname))
-        elif re.search(r'\.(mp4|MP4)',name):
-            filenamewithpath=os.path.join(path, name)
-            with exiftool.ExifTool() as et:
-                metadata = et.get_metadata(filenamewithpath)
-                print(metadata)
-            for key,value in metadata.items():
-                if re.search(r'^\d{4}:\d{2}:\d{2} \d{2}:\d{2}:\d{2}',str(value)) and re.search(r'QuickTime:CreationDate',str(key)): 
-                    datetime=str(value)[0:19]
-                    date=str(datetime).split(" ")[0]
-                    time=str(datetime).split(" ")[1]
-                    date=date.split(":")[0]+date.split(":")[1]+date.split(":")[2]
-                    time=time.split(":")[0]+time.split(":")[1]+time.split(":")[2]
-                    y=date[0:4]
-                    m=date[4:6]
-                    finalname='VID_'+date+'_'+time+".MP4"
-                    if not os.path.exists(os.path.join(targetDIR,y)):
-                        os.mkdir(os.path.join(targetDIR,y))
-                    if not os.path.exists(os.path.join(targetDIR,y,m)):
-                        os.mkdir(os.path.join(targetDIR,y,m))                    
-                    os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname))                    
-        elif re.search(r'\.(JPG|jpg|HEIC|heic)',name):
-            filenamewithpath=os.path.join(path, name)
-            with open(filenamewithpath, 'rb') as f:
-                tags = exifread.process_file(f)
-            print(tags)
-            if 'Image Model' in tags and 'Image DateTime' in tags:
-                DateTime=tags['Image DateTime']
-                date=str(DateTime).split(" ")[0]
-                time=str(DateTime).split(" ")[1]
-                date=date.split(":")[0]+date.split(":")[1]+date.split(":")[2]
-                time=time.split(":")[0]+time.split(":")[1]+time.split(":")[2]
-                y=date[0:4]
-                m=date[4:6]
-                if re.search(r'\.(HEIC|heic)',name):
-                    finalname='IMG_'+date+'_'+time+".HEIC"
-                elif re.search(r'\.(JPG|jpg)',name):
-                    finalname='IMG_'+date+'_'+time+".JPG"
-                if not os.path.exists(os.path.join(targetDIR,y)):
-                    os.mkdir(os.path.join(targetDIR,y))
-                if not os.path.exists(os.path.join(targetDIR,y,m)):
-                    os.mkdir(os.path.join(targetDIR,y,m))
-                os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # DIR=input('The DIR your images in:')
+# imagesDIR='/mnt/c/Users/Sen/Desktop/TrierVosPhotos'
+# targetDIR='/mnt/c/Users/Sen/Desktop/TrierVosPhotos'
+# # offset=input('The UTC offset where you take your videos(for example if you take it in China you should type "8"):')
+# for path, subdirs, files in os.walk(imagesDIR):
+#     for name in files:
+#         print(name)
+#         if re.search(r'\.(MOV|mov)',name):
+#             filenamewithpath=os.path.join(path, name)
+#             with exiftool.ExifTool() as et:
+#                 metadata = et.get_metadata(filenamewithpath)
+#             print(metadata)
+#             for key,value in metadata.items():
+#                 if re.search(r'^\d{4}:\d{2}:\d{2} \d{2}:\d{2}:\d{2}',str(value)) and re.search(r'QuickTime:CreationDate',str(key)): 
+#                     datetime=str(value)[0:19]
+#                     date=str(datetime).split(" ")[0]
+#                     time=str(datetime).split(" ")[1]
+#                     date=date.split(":")[0]+date.split(":")[1]+date.split(":")[2]
+#                     time=time.split(":")[0]+time.split(":")[1]+time.split(":")[2]
+#                     y=date[0:4]
+#                     m=date[4:6]
+#                     finalname='VID_'+date+'_'+time+".MOV"
+#                     if not os.path.exists(os.path.join(targetDIR,y)):
+#                         os.mkdir(os.path.join(targetDIR,y))
+#                     if not os.path.exists(os.path.join(targetDIR,y,m)):
+#                         os.mkdir(os.path.join(targetDIR,y,m))                    
+#                     os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname))
+#         elif re.search(r'\.(mp4|MP4)',name):
+#             filenamewithpath=os.path.join(path, name)
+#             with exiftool.ExifTool() as et:
+#                 metadata = et.get_metadata(filenamewithpath)
+#                 print(metadata)
+#             for key,value in metadata.items():
+#                 if re.search(r'^\d{4}:\d{2}:\d{2} \d{2}:\d{2}:\d{2}',str(value)) and re.search(r'QuickTime:CreationDate',str(key)): 
+#                     datetime=str(value)[0:19]
+#                     date=str(datetime).split(" ")[0]
+#                     time=str(datetime).split(" ")[1]
+#                     date=date.split(":")[0]+date.split(":")[1]+date.split(":")[2]
+#                     time=time.split(":")[0]+time.split(":")[1]+time.split(":")[2]
+#                     y=date[0:4]
+#                     m=date[4:6]
+#                     finalname='VID_'+date+'_'+time+".MP4"
+#                     if not os.path.exists(os.path.join(targetDIR,y)):
+#                         os.mkdir(os.path.join(targetDIR,y))
+#                     if not os.path.exists(os.path.join(targetDIR,y,m)):
+#                         os.mkdir(os.path.join(targetDIR,y,m))                    
+#                     os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname))                    
+#         elif re.search(r'\.(JPG|jpg|HEIC|heic)',name):
+#             filenamewithpath=os.path.join(path, name)
+#             with open(filenamewithpath, 'rb') as f:
+#                 tags = exifread.process_file(f)
+#             print(tags)
+#             if 'Image Model' in tags and 'Image DateTime' in tags:
+#                 DateTime=tags['Image DateTime']
+#                 date=str(DateTime).split(" ")[0]
+#                 time=str(DateTime).split(" ")[1]
+#                 date=date.split(":")[0]+date.split(":")[1]+date.split(":")[2]
+#                 time=time.split(":")[0]+time.split(":")[1]+time.split(":")[2]
+#                 y=date[0:4]
+#                 m=date[4:6]
+#                 if re.search(r'\.(HEIC|heic)',name):
+#                     finalname='IMG_'+date+'_'+time+".HEIC"
+#                 elif re.search(r'\.(JPG|jpg)',name):
+#                     finalname='IMG_'+date+'_'+time+".JPG"
+#                 if not os.path.exists(os.path.join(targetDIR,y)):
+#                     os.mkdir(os.path.join(targetDIR,y))
+#                 if not os.path.exists(os.path.join(targetDIR,y,m)):
+#                     os.mkdir(os.path.join(targetDIR,y,m))
+#                 os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname))
 
 
 

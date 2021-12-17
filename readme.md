@@ -2,6 +2,8 @@
 
 此脚本不会删除任何文件，无法读取信息的照片（PNG,JPG,MOV,MP4类型，一般是网络图片和屏幕截图，手机相机拍下来的基本自带信息)会被分类存入unknow/PNG,JPG,MOV,MP4文件夹中，而无法识别的文件则会留在原来的文件夹。
 
+注意，此脚本无法处理从谷歌相册下载的照片，因为照片的exif被谷歌相册修改过了，后续可能支持处理谷歌相册的照片备份。
+
 
 ### 二进制文件（app.exe或者app）使用示例
 
@@ -34,6 +36,11 @@ python3 app.py /mnt/d/Library/Pictures/DCIM /mnt/d/Library/Pictures/DCIM_sorted
 ```
 其中`/mnt/d/Library/Pictures/DCIM`是您的原始照片与影片的目录，而`/mnt/d/Library/Pictures/DCIM_sorted`是被整理后的目录。 
 
+------
+### 依赖库
+exifread.py 用于读取照片的exif
+exiftool 用于读取影片的exif（也能读照片的但是速度没有exifread快）
+PyExifTool.py exiftool的python封装
 
 
 
