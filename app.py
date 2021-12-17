@@ -34,16 +34,16 @@ for filenamewithpath in filenamewithpaths:
                     m=date[4:6]
                     finalname='VID_'+date+'_'+time+".MOV"
                     # if not os.path.exists(os.path.join(targetDIR,y)):
-                    #     os.mkdir(os.path.join(targetDIR,y))                     
+                    #     os.makedirs(os.path.join(targetDIR,y))                     
                     if not os.path.exists(os.path.join(targetDIR,y,m)):
-                        os.mkdir(os.path.join(targetDIR,y,m))    
+                        os.makedirs(os.path.join(targetDIR,y,m))    
                     try:            
                         os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname))
                     except Exception as e:
                         pass
         else:
             if not os.path.exists(os.path.join(targetDIR,'unknow','MOV')):
-                os.mkdir(os.path.join(targetDIR,'unknow','MOV'))
+                os.makedirs(os.path.join(targetDIR,'unknow','MOV'))
             try:
                 shutil.move(filenamewithpath,os.path.join(targetDIR,'unknow','MOV'))                    
             except Exception:
@@ -64,9 +64,9 @@ for filenamewithpath in filenamewithpaths:
     #             m=date[4:6]
     #             finalname='VID_'+date+'_'+time+".MP4"
     #             if not os.path.exists(os.path.join(targetDIR,y)):
-    #                 os.mkdir(os.path.join(targetDIR,y))
+    #                 os.makedirs(os.path.join(targetDIR,y))
     #             if not os.path.exists(os.path.join(targetDIR,y,m)):
-    #                 os.mkdir(os.path.join(targetDIR,y,m))                    
+    #                 os.makedirs(os.path.join(targetDIR,y,m))                    
     #             os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname))                    
     elif re.search(r'\.(JPG|jpg|HEIC|heic)',name):
         with open(filenamewithpath, 'rb') as f:
@@ -84,14 +84,14 @@ for filenamewithpath in filenamewithpaths:
             elif re.search(r'\.(JPG|jpg)',name):
                 finalname='IMG_'+date+'_'+time+".JPG"
             if not os.path.exists(os.path.join(targetDIR,y)):
-                os.mkdir(os.path.join(targetDIR,y))
+                os.makedirs(os.path.join(targetDIR,y))
             if not os.path.exists(os.path.join(targetDIR,y,m)):
-                os.mkdir(os.path.join(targetDIR,y,m))
+                os.makedirs(os.path.join(targetDIR,y,m))
             os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname))
         else:
             if re.search(r'\.(HEIC|heic)',name):
                 if not os.path.exists(os.path.join(targetDIR,unknow,heic)):
-                    os.mkdir(os.path.join(targetDIR,unknow,heic))
+                    os.makedirs(os.path.join(targetDIR,unknow,heic))
                 try:
                     shutil.move(filenamewithpath,os.path.join(targetDIR,unknow,heic))                    
                 except Exception:
@@ -108,7 +108,7 @@ for filenamewithpath in filenamewithpaths:
                     pass
     elif re.search(r'\.(JPEG|jpeg)',name):
         if not os.path.exists(os.path.join(targetDIR,'unknow','JPEG')):
-            os.mkdir(os.path.join(targetDIR,'unknow','JPEG'))
+            os.makedirs(os.path.join(targetDIR,'unknow','JPEG'))
         try:
             shutil.move(filenamewithpath,os.path.join(targetDIR,'unknow','JPEG'))                    
         except Exception:
@@ -116,7 +116,7 @@ for filenamewithpath in filenamewithpaths:
     elif re.search(r'\.(mp4|MP4)',name):
         
         if not os.path.exists(os.path.join(targetDIR,'unknow','MP4')):
-            os.mkdir(os.path.join(targetDIR,'unknow','MP4'))
+            os.makedirs(os.path.join(targetDIR,'unknow','MP4'))
         try:
             shutil.move(filenamewithpath,os.path.join(targetDIR,'unknow','MP4')) 
         except:
@@ -124,7 +124,7 @@ for filenamewithpath in filenamewithpaths:
     elif re.search(r'\.(png|PNG)',name):
         
         if not os.path.exists(os.path.join(targetDIR,'unknow','PNG')):
-            os.mkdir(os.path.join(targetDIR,'unknow','PNG'))
+            os.makedirs(os.path.join(targetDIR,'unknow','PNG'))
         try:
             shutil.move(filenamewithpath,os.path.join(targetDIR,'unknow','PNG')) 
         except:
@@ -155,7 +155,7 @@ for filenamewithpath in filenamewithpaths:
 
 
             # if not os.path.exists(os.path.join(targetDIR,'unknow','OTHERTYPE')):
-            #     os.mkdir(os.path.join(targetDIR,'unknow','OTHERTYPE'))
+            #     os.makedirs(os.path.join(targetDIR,'unknow','OTHERTYPE'))
             # try:
             #     shutil.move(filenamewithpath,os.path.join(targetDIR,'unknow','OTHERTYPE'))
             # except Exception:
@@ -183,9 +183,9 @@ for filenamewithpath in filenamewithpaths:
             #         m=date[4:6]
             #         finalname='IMG_'+date+'_'+time+".JPG"
             #         if not os.path.exists(os.path.join(targetDIR,y)):
-            #             os.mkdir(os.path.join(targetDIR,y))
+            #             os.makedirs(os.path.join(targetDIR,y))
             #         if not os.path.exists(os.path.join(targetDIR,y,m)):
-            #             os.mkdir(os.path.join(targetDIR,y,m))                    
+            #             os.makedirs(os.path.join(targetDIR,y,m))                    
             #         os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname)) 
 
 
@@ -280,9 +280,9 @@ for filenamewithpath in filenamewithpaths:
 #         if re.search(r'\.JPG',name):
 #             name='IMG_'+date+'_'+time+".JPG"
 #         if not os.path.exists(os.path.join(targetDIR,y)):
-#             os.mkdir(os.path.join(targetDIR,y))
+#             os.makedirs(os.path.join(targetDIR,y))
 #         if not os.path.exists(os.path.join(targetDIR,y,m)):
-#             os.mkdir(os.path.join(targetDIR,y,m))
+#             os.makedirs(os.path.join(targetDIR,y,m))
 #         os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname))
 
 #         # if re.search(r'^\d{4}:\d{2}:\d{2} \d{2}:\d{2}:\d{2}',str(value)) and re.search(r'Creat[a-z]*Date',str(key)):
@@ -326,9 +326,9 @@ for filenamewithpath in filenamewithpaths:
         #         m=date[4:6]
         #         name='VID_'+date+'_'+time+".MOV"
         #         if not os.path.exists(os.path.join(targetDIR,y)):
-        #             os.mkdir(os.path.join(targetDIR,y))
+        #             os.makedirs(os.path.join(targetDIR,y))
         #         if not os.path.exists(os.path.join(targetDIR,y,m)):
-        #             os.mkdir(os.path.join(targetDIR,y,m))
+        #             os.makedirs(os.path.join(targetDIR,y,m))
         #         os.rename(vidname,os.path.join(targetDIR,y,m,name))
 
 
@@ -348,9 +348,9 @@ for filenamewithpath in filenamewithpaths:
 #         m=date[4:6]
 #         name='VID_'+date+'_'+time+".MOV"
 #         if not os.path.exists(os.path.join(targetDIR,y)):
-#             os.mkdir(os.path.join(targetDIR,y))
+#             os.makedirs(os.path.join(targetDIR,y))
 #         if not os.path.exists(os.path.join(targetDIR,y,m)):
-#             os.mkdir(os.path.join(targetDIR,y,m))
+#             os.makedirs(os.path.join(targetDIR,y,m))
 #         os.rename(vidname,os.path.join(targetDIR,y,m,name))
 
 
@@ -369,9 +369,9 @@ for filenamewithpath in filenamewithpaths:
 #         m=date[4:6]
 #         name='IMG_'+date+'_'+time+".HEIC"
 #         if not os.path.exists(os.path.join(targetDIR,y)):
-#             os.mkdir(os.path.join(targetDIR,y))
+#             os.makedirs(os.path.join(targetDIR,y))
 #         if not os.path.exists(os.path.join(targetDIR,y,m)):
-#             os.mkdir(os.path.join(targetDIR,y,m))
+#             os.makedirs(os.path.join(targetDIR,y,m))
 #         os.rename(imgname,os.path.join(targetDIR,y,m,name))
 
 # imgnames=glob.glob(imagesDIR+"/*/*.JPG")
@@ -388,9 +388,9 @@ for filenamewithpath in filenamewithpaths:
 #         m=date[4:6]
 #         name='IMG_'+date+'_'+time+".JPG"
 #         if not os.path.exists(os.path.join(targetDIR,y)):
-#             os.mkdir(os.path.join(targetDIR,y))
+#             os.makedirs(os.path.join(targetDIR,y))
 #         if not os.path.exists(os.path.join(targetDIR,y,m)):
-#             os.mkdir(os.path.join(targetDIR,y,m))
+#             os.makedirs(os.path.join(targetDIR,y,m))
 #         os.rename(imgname,os.path.join(targetDIR,y,m,name))
 
 # vidnames=glob.glob(imagesDIR+"/*/*/*.MOV")
