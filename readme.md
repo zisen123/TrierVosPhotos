@@ -44,5 +44,9 @@ exiftool 用于读取影片的exif（也能读照片的但是速度没有exifrea
 
 PyExifTool.py exiftool的python封装
 
+### 建议
+推荐配合[PhotoPrism](https://github.com/photoprism/photoprism/)使用！以此构建不输大公司云端相册的体验。
+
+
 
 ![Alt](https://repobeats.axiom.co/api/embed/4e38517af5a5023ae9155c0b08d32771a4de3861.svg "Repobeats analytics image")
