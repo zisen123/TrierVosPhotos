@@ -39,7 +39,9 @@ python3 app.py /mnt/d/Library/Pictures/DCIM /mnt/d/Library/Pictures/DCIM_sorted
 ------
 ### 依赖库
 exifread.py 用于读取照片的exif
+
 exiftool 用于读取影片的exif（也能读照片的但是速度没有exifread快）
+
 PyExifTool.py exiftool的python封装
 
 
