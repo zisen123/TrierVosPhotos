@@ -47,27 +47,7 @@ for filenamewithpath in filenamewithpaths:
             try:
                 shutil.move(filenamewithpath,os.path.join(targetDIR,'unknow','MOV'))                    
             except Exception:
-                pass  
-    # elif re.search(r'\.(mp4|MP4)',name):
-    #     filenamewithpath=os.path.join(path, name)
-    #     with exiftool.ExifTool() as et:
-    #         metadata = et.get_metadata(filenamewithpath)
-    #         print(metadata)
-    #     for key,value in metadata.items():
-    #         if re.search(r'^\d{4}:\d{2}:\d{2} \d{2}:\d{2}:\d{2}',str(value)) and re.search(r'QuickTime:CreationDate',str(key)): 
-    #             datetime=str(value)[0:19]
-    #             date=str(datetime).split(" ")[0]
-    #             time=str(datetime).split(" ")[1]
-    #             date=date.split(":")[0]+date.split(":")[1]+date.split(":")[2]
-    #             time=time.split(":")[0]+time.split(":")[1]+time.split(":")[2]
-    #             y=date[0:4]
-    #             m=date[4:6]
-    #             finalname='VID_'+date+'_'+time+".MP4"
-    #             if not os.path.exists(os.path.join(targetDIR,y)):
-    #                 os.makedirs(os.path.join(targetDIR,y))
-    #             if not os.path.exists(os.path.join(targetDIR,y,m)):
-    #                 os.makedirs(os.path.join(targetDIR,y,m))                    
-    #             os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname))                    
+                pass                   
     elif re.search(r'\.(JPG|jpg|HEIC|heic)',name):
         with open(filenamewithpath, 'rb') as f:
             tags = exifread.process_file(f)
@@ -83,8 +63,6 @@ for filenamewithpath in filenamewithpaths:
                 finalname='IMG_'+date+'_'+time+".HEIC"
             elif re.search(r'\.(JPG|jpg)',name):
                 finalname='IMG_'+date+'_'+time+".JPG"
-            if not os.path.exists(os.path.join(targetDIR,y)):
-                os.makedirs(os.path.join(targetDIR,y))
             if not os.path.exists(os.path.join(targetDIR,y,m)):
                 os.makedirs(os.path.join(targetDIR,y,m))
             os.rename(filenamewithpath,os.path.join(targetDIR,y,m,finalname))
@@ -129,6 +107,15 @@ for filenamewithpath in filenamewithpaths:
             shutil.move(filenamewithpath,os.path.join(targetDIR,'unknow','PNG')) 
         except:
             pass
+    elif re.search(r'\.(JFIF|jfif)',name):
+        date=name.split("_")[1]
+        y=date[0:4]
+        m=date[4:6]
+        if not os.path.exists(os.path.join(targetDIR,y,m)):
+            os.makedirs(os.path.join(targetDIR,y,m))
+        shutil.copy(filenamewithpath,os.path.join(targetDIR,y,m))
+
+        re.search(r'^(IMG|VID)_\d{8}_\d{6}',name)
     else:
         pass
 

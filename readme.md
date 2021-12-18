@@ -2,7 +2,7 @@
 
 此脚本不会删除任何文件，无法读取信息的照片（PNG,JPG,MOV,MP4类型，一般是网络图片和屏幕截图，手机相机拍下来的基本自带信息)会被分类存入unknow/PNG,JPG,MOV,MP4文件夹中，而无法识别的文件则会留在原来的文件夹。
 
-注意，此脚本无法处理从谷歌相册下载的照片，因为照片的exif被谷歌相册修改过了，后续可能支持处理谷歌相册的照片备份。
+注意，此脚本无法处理从谷歌相册下载的照片，因为照片的exif被谷歌相册修改过了，后续可能支持处理'谷歌相册的照片备份'。
 
 
 ### 二进制文件（app.exe或者app）使用示例
@@ -44,5 +44,10 @@ exiftool 用于读取影片的exif（也能读照片的但是速度没有exifrea
 
 PyExifTool.py exiftool的python封装
 
+------
+### TODO
+- [] 增加对Google Photo导出的照片的支持
+- [] 增加对exif被抹消的照片的支持（也许文件名里面包含了日期时间）
+- [] 支持不同格式的图片（例如JFIF，WEBP）
 
 ![Alt](https://repobeats.axiom.co/api/embed/4e38517af5a5023ae9155c0b08d32771a4de3861.svg "Repobeats analytics image")

@@ -2,15 +2,18 @@ import sys
 import os
 import re
 imagesDIR=sys.argv[1]
+# targetDIR=sys.argv[2]
 filenamewithpaths=[]
 for path, subdirs, files in os.walk(imagesDIR):
     for name in files:
         filenamewithpaths.append(os.path.join(path, name))
 for filenamewithpath in filenamewithpaths: 
     print(filenamewithpath) 
-    Newfilenamewithpath=filenamewithpath.split('.')[0]+'.'+filenamewithpath.split('.')[1].upper()
-    os.rename(filenamewithpath,Newfilenamewithpath)
-
+    Newfilenamewithpath=filenamewithpath.split('.')[0]+'.JFIF'
+    try:
+        os.rename(filenamewithpath,Newfilenamewithpath)
+    except:
+        pass
 
 
 
