@@ -48,8 +48,7 @@ PyExifTool.py exiftool的python封装
 推荐配合[PhotoPrism](https://github.com/photoprism/photoprism/)使用！以此构建不输大公司云端相册的体验。
 
 示例
-![](https://pic.imgdb.cn/item/61bd24ab2ab3f51d91d3f0d9.png)
-
+[![](https://pic.imgdb.cn/item/61bd24ab2ab3f51d91d3f0d9.png)](https://pic.imgdb.cn/item/61bd24ab2ab3f51d91d3f0d9.png)
 
 
 ![Alt](https://repobeats.axiom.co/api/embed/4e38517af5a5023ae9155c0b08d32771a4de3861.svg "Repobeats analytics image")
