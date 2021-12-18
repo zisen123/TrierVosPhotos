@@ -28,7 +28,7 @@ app.exe C:\Users\Sen\Documents\TrierVosPhotos C:\Users\Sen\Documents\TrierVosPho
 ### 如果您想使用python源代码请看下面的示例
 
 首先安装exifread，`pip install exifread`
-![](https://pic.imgdb.cn/item/61bd24ab2ab3f51d91d3f0d9.png)
+
 在运行脚本之前请确保exiftool已经被添加到了系统环境变量中，推荐使用wsl或者linux系统[安装exiftool](https://exiftool.org/install.html#Unix)。
 
 ```shell
