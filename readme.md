@@ -46,8 +46,8 @@ PyExifTool.py exiftool的python封装
 
 ------
 ### TODO
-- [] 增加对Google Photo导出的照片的支持
-- [] 增加对exif被抹消的照片的支持（也许文件名里面包含了日期时间）
-- [] 支持不同格式的图片（例如JFIF，WEBP）
+- [ ] 增加对Google Photo导出的照片的支持
+- [ ] 增加对exif被抹消的照片的支持（也许文件名里面包含了日期时间）
+- [ ] 支持不同格式的图片（例如JFIF，WEBP）
 
 ![Alt](https://repobeats.axiom.co/api/embed/4e38517af5a5023ae9155c0b08d32771a4de3861.svg "Repobeats analytics image")
