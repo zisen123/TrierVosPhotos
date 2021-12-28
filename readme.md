@@ -38,16 +38,22 @@ python3 app.py /mnt/d/Library/Pictures/DCIM /mnt/d/Library/Pictures/DCIM_sorted
 
 ------
 ### 依赖库
-exifread.py 用于读取照片的exif
+- exifread.py 用于读取照片的exif
 
-exiftool 用于读取影片的exif（也能读照片的但是速度没有exifread快）
+- exiftool 用于读取影片的exif（也能读照片的但是速度没有exifread快）
 
-PyExifTool.py exiftool的python封装
+- PyExifTool.py exiftool的python封装
+- FileType 判断文件类型
 
 ------
 ### TODO
-- [] 增加对Google Photo导出的照片的支持
-- [] 增加对exif被抹消的照片的支持（也许文件名里面包含了日期时间）
-- [] 支持不同格式的图片（例如JFIF，WEBP）
+- [] 增加对Google Photo导出的照片和影片的支持（谷歌相册自作聪明把Exif中的时间修改为UTC然后在后面加上时区）
+- [x] 增加对exif被抹消的照片的支持（也许文件名里面包含了日期时间）
+- [x] 支持不同格式的图片（例如JFIF，WEBP）
+
+
+------
+### FlowChart
+![](flowchart.png)
 
 ![Alt](https://repobeats.axiom.co/api/embed/4e38517af5a5023ae9155c0b08d32771a4de3861.svg "Repobeats analytics image")
