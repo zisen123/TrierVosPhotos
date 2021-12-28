@@ -1,2 +1,2 @@
-/exiftool
-/combine
+exiftool.py
+combine.py
